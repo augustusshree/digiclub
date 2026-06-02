@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     devServer({
       entry: 'api/boot.ts',
-      exclude: [/^\/(src|assets|@.+|favicon\.ico|vite\.svg).*/],
+      exclude: [/^\/(?!api\/)/],
     }),
   ],
   resolve: {

@@ -19,7 +19,7 @@ export default function RegisterPage() {
   const register = trpc.auth.register.useMutation({
     onSuccess: (data) => {
       setAuth(data.user as any, data.token)
-      toast.success('Account created! Welcome to DigiClub!')
+      toast.success('Account created! Welcome to Digiclub!')
       navigate('/')
     },
     onError: (err) => toast.error(err.message),
@@ -37,7 +37,7 @@ export default function RegisterPage() {
           <div className="flex justify-center mb-2">
             <Swords className="h-10 w-10 text-primary" />
           </div>
-          <CardTitle className="text-2xl">Join DigiClub</CardTitle>
+          <CardTitle className="text-2xl">Join Digiclub</CardTitle>
           <CardDescription>Create your student account</CardDescription>
         </CardHeader>
         <CardContent>

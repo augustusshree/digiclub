@@ -1,7 +1,8 @@
 import 'dotenv/config'
 import { db } from './index'
 import { users, schools, badges, challenges, seasons } from './schema'
-import { hashSync } from 'bcryptjs'
+import bcrypt from 'bcryptjs'
+const { hashSync } = bcrypt
 
 const nepaliSchools = [
   { name: 'Adarsh Vidya Mandir Higher Secondary School', code: 'AVM001', city: 'Kathmandu' },

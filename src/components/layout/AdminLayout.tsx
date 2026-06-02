@@ -37,7 +37,7 @@ export default function AdminLayout() {
           </Button>
           <Link to="/" className="flex items-center gap-2 font-bold text-lg ml-2">
             <Swords className="h-5 w-5 text-primary" />
-            DigiClub Admin
+            Digiclub Admin
           </Link>
           <nav className="hidden md:flex items-center gap-1 ml-6">
             {links.map((link) => (

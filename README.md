@@ -1,4 +1,4 @@
-# DigiClub 🏆
+# Digiclub 🏆
 
 A **school gamification platform** where students earn points, unlock badges, compete in challenges, and climb leaderboards — all within a Facebook-style social feed. Built for 100+ schools in Nepal.
 
@@ -58,7 +58,7 @@ A **school gamification platform** where students earn points, unlock badges, co
 ## Project Structure
 
 ```
-D:\DigiClub\
+D:\Digiclub\
 ├── api/                          # Backend (Hono + tRPC)
 │   ├── boot.ts                   # Hono server entry (@hono/vite-dev-server)
 │   ├── context.ts                # tRPC context (auth extraction)
