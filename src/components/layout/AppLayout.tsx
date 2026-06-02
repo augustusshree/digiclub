@@ -36,7 +36,7 @@ export default function AppLayout() {
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="flex h-14 items-center px-4 max-w-7xl mx-auto">
           <Link to="/" className="flex items-center gap-2 font-bold text-lg mr-6">
-            <Swords className="h-5 w-5 text-primary" />
+            <img src="/digiclub.svg" alt="Digiclub" className="h-8 w-8" />
             Digiclub
           </Link>
           <nav className="hidden md:flex items-center gap-1 flex-1">

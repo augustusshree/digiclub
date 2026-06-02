@@ -14,6 +14,7 @@ import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminPosts from './pages/admin/AdminPosts'
 import AdminChallenges from './pages/admin/AdminChallenges'
 import AdminBadges from './pages/admin/AdminBadges'
+import AdminPoints from './pages/admin/AdminPoints'
 import SuperAdminDashboard from './pages/superadmin/SuperAdminDashboard'
 import SuperAdminAdmins from './pages/superadmin/SuperAdminAdmins'
 import SuperAdminSchools from './pages/superadmin/SuperAdminSchools'
@@ -51,6 +52,7 @@ export default function App() {
           <Route path="/admin/posts" element={<AdminPosts />} />
           <Route path="/admin/challenges" element={<AdminChallenges />} />
           <Route path="/admin/badges" element={<AdminBadges />} />
+          <Route path="/admin/points" element={<AdminPoints />} />
         </Route>
         <Route element={<ProtectedRoute allowedRoles={['SUPER_ADMIN']}><AdminLayout /></ProtectedRoute>}>
           <Route path="/super-admin" element={<SuperAdminDashboard />} />

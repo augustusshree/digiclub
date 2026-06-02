@@ -3,7 +3,7 @@ import { useAuthStore } from '../../store/authStore'
 import { useThemeStore } from '../../store/themeStore'
 import { Button } from '../ui/button'
 import { Avatar, AvatarFallback } from '../ui/avatar'
-import { Sun, Moon, LogOut, LayoutDashboard, FileText, Award, Swords, GraduationCap, Shield, ArrowLeft, School } from 'lucide-react'
+import { Sun, Moon, LogOut, LayoutDashboard, FileText, Award, Swords, GraduationCap, Shield, ArrowLeft, School, Coins } from 'lucide-react'
 
 export default function AdminLayout() {
   const { user, logout } = useAuthStore()
@@ -18,6 +18,7 @@ export default function AdminLayout() {
     { to: '/admin/posts', label: 'Posts', icon: FileText },
     { to: '/admin/challenges', label: 'Challenges', icon: Award },
     { to: '/admin/badges', label: 'Badges', icon: Shield },
+    { to: '/admin/points', label: 'Points', icon: Coins },
   ]
 
   const superAdminLinks = [
@@ -36,7 +37,7 @@ export default function AdminLayout() {
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <Link to="/" className="flex items-center gap-2 font-bold text-lg ml-2">
-            <Swords className="h-5 w-5 text-primary" />
+            <img src="/digiclub.svg" alt="Digiclub" className="h-8 w-8" />
             Digiclub Admin
           </Link>
           <nav className="hidden md:flex items-center gap-1 ml-6">

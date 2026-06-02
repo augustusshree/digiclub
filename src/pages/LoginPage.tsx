@@ -6,7 +6,6 @@ import { Button } from '../components/ui/button'
 import { Input } from '../components/ui/input'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card'
 import { Label } from '../components/ui/label'
-import { Swords } from 'lucide-react'
 import { toast } from 'sonner'
 
 export default function LoginPage() {
@@ -33,7 +32,7 @@ export default function LoginPage() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-2">
-            <Swords className="h-10 w-10 text-primary" />
+            <img src="/digiclub.svg" alt="Digiclub" className="h-14 w-14" />
           </div>
           <CardTitle className="text-2xl">Digiclub</CardTitle>
           <CardDescription>Sign in to your account</CardDescription>

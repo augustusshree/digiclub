@@ -1,16 +1,20 @@
+import { useState } from 'react'
 import { trpc } from '../../lib/trpc'
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card'
 import { Button } from '../../components/ui/button'
+import { Input } from '../../components/ui/input'
 import { Badge } from '../../components/ui/badge'
-import { Loader2, Check, X, Eye } from 'lucide-react'
+import { Label } from '../../components/ui/label'
+import { Loader2, Check, X, Eye, Coins } from 'lucide-react'
 import { toast } from 'sonner'
 import { formatDistanceToNow } from 'date-fns'
 
 export default function AdminPosts() {
   const utils = trpc.useUtils()
+  const [pointsMap, setPointsMap] = useState<Record<string, string>>({})
   const { data: posts, isLoading } = trpc.admin.getPendingPosts.useQuery()
   const review = trpc.admin.reviewPost.useMutation({
-    onSuccess: () => { utils.admin.getPendingPosts.invalidate(); toast.success('Post reviewed!') },
+    onSuccess: () => { utils.admin.getPendingPosts.invalidate(); utils.admin.getDashboard.invalidate(); toast.success('Post reviewed!') },
     onError: (err) => toast.error(err.message),
   })
 
@@ -38,8 +42,21 @@ export default function AdminPosts() {
                 <p className="text-sm whitespace-pre-wrap">{post.content}</p>
                 {post.school && <p className="text-xs text-muted-foreground mt-2">{post.school.name}</p>}
               </CardContent>
-              <div className="px-6 pb-4 flex gap-2">
-                <Button size="sm" variant="default" className="gap-1" onClick={() => review.mutate({ postId: post.id, status: 'APPROVED', pointsAwarded: 10 })}>
+              <div className="px-6 pb-4 flex items-center gap-3">
+                <div className="flex items-center gap-2">
+                  <Coins className="h-4 w-4 text-yellow-500" />
+                  <Input
+                    type="number"
+                    min={1}
+                    max={1000}
+                    className="h-8 w-20 text-sm"
+                    placeholder="10"
+                    value={pointsMap[post.id] ?? ''}
+                    onChange={(e) => setPointsMap((prev) => ({ ...prev, [post.id]: e.target.value }))}
+                  />
+                  <span className="text-xs text-muted-foreground">pts</span>
+                </div>
+                <Button size="sm" variant="default" className="gap-1" onClick={() => review.mutate({ postId: post.id, status: 'APPROVED', pointsAwarded: Number(pointsMap[post.id]) || 10 })}>
                   <Check className="h-4 w-4" /> Approve
                 </Button>
                 <Button size="sm" variant="destructive" className="gap-1" onClick={() => review.mutate({ postId: post.id, status: 'REJECTED' })}>
